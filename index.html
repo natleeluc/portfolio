@@ -53,15 +53,15 @@
   overflow: hidden; /* zabrání vykukování obrázku ven */
 }
 
-    header {
+ header {
   background-color: #adb683;
-  padding: 2rem;
+  background-image: url('leaf2.jpeg');
+  background-repeat: repeat;
+  background-size: 200px; /* zmenší obrázek, přirozený opakovaný vzor */
+  opacity: 0.15; /* jemnost, můžeš upravit */
+  padding: 3rem 2rem;
   text-align: center;
-  background-image: url('leaf.jpeg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; /* ← Tohle zajistí roztáhnutí */
-  background-blend-mode: overlay; /* Průhledné překrytí */
+  position: relative;
 }
 
 header h1,
