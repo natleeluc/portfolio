@@ -45,11 +45,35 @@
       line-height: 1.6;
     } /*celkový vizuál stránky*/
 
-    header {
-      background-color: #adb683;
-      padding: 4rem;
-      text-align: center;
     }
+    header {
+  background-color: #adb683;
+  padding: 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* zabrání vykukování obrázku ven */
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('leaf.jpeg'); /* nahraď názvem souboru, který jsi nahrála */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.15; /* jemná průhlednost */
+  z-index: 0;
+}
+
+header h1,
+header nav {
+  position: relative;
+  z-index: 1; /* zajistí, že text bude nad obrázkem */
+}
 
     header h1 {
       margin: 0;
