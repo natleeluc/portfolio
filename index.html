@@ -1,54 +1,92 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Natálie</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natálie Lea Lucká – Portfolio</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap" rel="stylesheet">
   <style>
-    /* Dekorativní obrázky po stranách */
-    .deco {
-      position: absolute;
-      top: 150px;
-      width: 120px;
-      opacity: 0.3;
-      z-index: -1;
+ .button {
+      background-color: #fcbba7; /* světlý losos/meruňka tlačítko */ 
+
+      color: #35281E;
+      padding: 0.7rem 2rem;
+      border: none;
+      border-radius: 999px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.2s ease;
+      margin-top: 0.5rem;
     }
 
-    .left-deco {
-      left: 10px;
-    }
+    .button:hover {
+      transform: scale(1.05);
+      background-color: #f7a288; /* meruŇková při hoveru */
+      }
 
-    .right-deco {
-      right: 10px;
-    }
-
-    .main-content {
-      position: relative;
-      padding: 2rem;
-    }
-
-    body {
+      .project h3 {  
+  font-size: 1.4rem;
+  font-weight: 550;
+  color: #a14247;
+} /* to jsou jednotlivé nadpisy projektů */
+    
+    .project {
+  margin-bottom: 2.5rem;
+}
+    
+    body { 
       margin: 0;
-      font-family: sans-serif;
-      background-color: #fffaf5;
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #f7f0e6;
+      color: #3b2d21;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    } /*celkový vizuál stránky*/
+
+    header {
+  background-color: #adb683;
+  padding: 4rem;
+  text-align: center;
+}
+
+
+    header h1 {
+      margin: 0;
+      font-size: 2.3rem;
+      font-weight: 300;
     }
 
-    header, footer {
-      background-color: #f0eae2;
-      padding: 1rem;
-      text-align: center;
+    nav {
+      margin-top: 1rem;
     }
 
     nav a {
-      margin: 0 10px;
+      color: #35281E;
+      margin: 0 1rem;
       text-decoration: none;
-      color: #333;
+      font-weight: 300;
     }
 
-    section {
-      max-width: 800px;
+    .section {
+      padding: 0.5rem 0.5rem;
+      max-width: 900px;
       margin: 0 auto;
+    }
+
+    h2 {
+      color: #e2877d;
+      font-weight: 300;
+      border-bottom: 1px solid #e2877d;
+      padding-bottom: 0.5rem;
+    }
+
+    footer {
+      background-color: #eab7a4;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -62,38 +100,45 @@
     </nav>
   </header>
 
-  <!-- Obrázky po stranách hlavního obsahu -->
-  <img src="Bau.jpeg" class="deco left-deco" alt="Bauhaus dekorace vlevo">
+ <img src="Bau.jpeg" class="deco left-deco" alt="Bauhaus dekorace vlevo">
   <img src="Bau.jpeg" class="deco right-deco" alt="Bauhaus dekorace vpravo">
 
-  <main class="main-content">
-    <section id="projects">
-      <h2>Projekty</h2>
-      <p>V těchto projektech využívám SQL, Power BI a Python. Věnuji se zákaznické segmentaci, analýze pracovních inzerátů i klimatickým závazkům.</p>
-      <div class="project">
-        <h3>Segmentace zákazníků</h3>
-        <p>Popis projektu…</p>
-      </div>
-      <!-- Přidej další projekty -->
-    </section>
+  <section class="section" id="projects">
+    <h2 style="font-weight: 650;">Projekty</h2>
+    <p>V těchto projektech využívám SQL, Power BI a Python. Věnuji se zákaznické segmentaci, analýze pracovních inzerátů i klimatickým závazkům.</p>
 
-    <section id="about">
-      <h2>O mně</h2>
-      <p>
-        Jsem nadšená datová analytička se zájmem o životní prostředí, interiérový design a samozřejmě také data.
-        Mou lásku k nim jsem objevila v roce 2022 a od té doby se neustále v této oblasti vzdělávám.
-        Mám pracovní zkušenosti s SQL, Power BI a Excelem. Ve svém volném čase jsem se pak naučila pracovat s Pythonem a momentálně se učím i HTML a CSS.
-      </p>
-    </section>
+  <div class="project">
+  <h3 style="font-weight: 500;">Segmentace zákazníků</h3>
+  <p>Pomocí RFM analýzy jsem rozdělila zákazníky podle jejich nákupního chování. Výsledky jsem vizualizovala v Power BI a popsala typické segmenty.</p>
+  <a class="button" href="#">Zobrazit více</a>
+</div>
 
-    <section id="contact">
-      <h2>Kontakt</h2>
-      <p>Napiš mi na <a href="mailto:tvoje@email.cz">tvoje@email.cz</a></p>
-    </section>
-  </main>
+    <div class="project">
+      <h3 style="font-weight: 500;">Co požadují firmy od juniorních analytiků</h3>
+      <p>Ručně jsem sesbírala desítky pracovních inzerátů z portálů jako jobs.cz a LinkedIn a analyzovala nejčastěji požadované dovednosti a nástroje.</p>
+      <a class="button" href="#">Zobrazit více</a>
+    </div>
+
+    <div class="project">
+      <h3 style="font-weight: 500;">CO₂ and the Paris Agreement</h3>
+      <p>This project analyzes CO₂ emissions data in the context of the Paris Agreement. The goal is to visualize trends and highlight which countries are meeting their reduction targets.</p>
+      <a class="button" href="#">Zobrazit více</a>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2 style="font-weight: 650;">O mně</h2>
+    <p>Jsem nadšená datová analytička se zájmem o životní prostředí, interiérový design a samozřejmě také data. Svou vášeň k nim jsem objevila v roce 2022 a 
+od té doby se neustále v této oblasti vzdělávám. Mám pracovní zkušenosti s SQL, Power BI a Excelem. Ve svém volném čase jsem se pak naučila pracovat s Pythonem a momentálně se učím i HTML a CSS.</p>
+  </section>
+
+  <section class="section" id="contact">
+    <h2 style="font-weight: 650;">Kontakt</h2>
+    <p>Můžete mě kontaktovat na <a href="mailto:luckanatalie96@seznam.cz">luckanatalie96@seznam.cz</a> nebo přes <a href="https://www.linkedin.com/in/nat%C3%A1lie-lea-luck%C3%A1-4b035a248/">LinkedIn</a>.</p>
+  </section>
 
   <footer>
-    <p>&copy; 2025 Natálie Lea Lucká</p>
+    &copy; 2025 Natálie Lea Lucká
   </footer>
 </body>
 </html>
