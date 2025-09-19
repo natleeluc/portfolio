@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emise CO₂ podle dopravy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #f7f0e6;
+      color: #3b2d21;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: #e2877d;
+      font-weight: 300;
+      border-bottom: 1px solid #e2877d;
+      padding-bottom: 0.5rem;
+    }
+
+    h3 {
+      color: #a14247;
+      margin-top: 2rem;
+    }
+
+    .button {
+      background-color: #fcbba7;
+      color: #35281E;
+      padding: 0.7rem 2rem;
+      border: none;
+      border-radius: 999px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.2s ease;
+      margin-top: 0.5rem;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+      background-color: #f7a288;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <h2>Emise CO₂ podle způsobu dopravy</h2>
+    <p>
+      Tento projekt porovnává množství emisí oxidu uhličitého (CO₂), které vznikají při cestování na 1000 km různými dopravními prostředky.
+      Využila jsem Python (pandas a matplotlib) k výpočtům i vizualizaci výsledků.
+    </p>
+
+    <h3>Graf emisí</h3>
+    <img src="projects/emise-doprava/graf_emise.png" alt="Graf emisí CO₂ podle dopravy">
+
+    <h3>Stáhnout kód</h3>
+    <a class="button" href="emise.py" download>Stáhnout Python kód (.py)</a>
+  </div>
+</body>
+</html>
