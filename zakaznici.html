@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Analýza zákaznického chování</title>
-  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Zákaznické chování</title>
+  <link rel="icon" type="image/png" href="../../favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap" rel="stylesheet">
   <style>
     body {
@@ -34,6 +34,24 @@
       margin-top: 2rem;
     }
 
+    pre {
+      background-color: #f3e6dc;
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+
+    details {
+      margin-bottom: 1rem;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 500;
+      color: #a14247;
+    }
+
     .button {
       background-color: #fcbba7;
       color: #35281E;
@@ -44,33 +62,71 @@
       text-decoration: none;
       display: inline-block;
       transition: transform 0.2s ease;
-      margin-top: 0.5rem;
+      margin-top: 1rem;
     }
 
     .button:hover {
       transform: scale(1.05);
       background-color: #f7a288;
     }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      margin-top: 1rem;
-    }
   </style>
 </head>
 <body>
   <div class="section">
-    <h2>Analýza zákaznického chování</h2>
+    <h2>Zákaznické chování – SQL analýza</h2>
     <p>
-      Tento projekt analyzuje chování zákazníků na základě RFM modelu (Recency, Frequency, Monetary). 
-Cílem bylo identifikovat segmenty podle jejich nákupní aktivity, loajality a odezvy na kampaně. 
-      Data pochází z veřejně dostupného <a 
-href="https://www.kaggle.com/datasets/imakash3011/customer-personality-analysis?resource=download" target="_blank">datasetu na Kaggle</a>. 
-      Výsledky byly zpracovány pomocí SQL a vizualizovány v Power BI.
+      Tento projekt se zaměřuje na analýzu zákaznického chování pomocí SQL. Využila jsem různé metody, včetně výpočtu délky členství,
+      celkové útraty, RFM analýzy a segmentace zákazníků podle jejich aktivity.
+    </p>
 
-    <h3>Prezentace</h3>
-<a class="button" href="zakaznicke-chovani.pptx" target="_blank">Zobrazit prezentaci</a>
+    <h3>Ukázky dotazů</h3>
+
+    <details>
+      <summary>🎯 Délka členství vs. útrata</summary>
+      <pre><code>SELECT
+  ID, 
+  DATEDIFF(CURDATE(), STR_TO_DATE(Dt_Customer, '%d.%m.%Y')) / 365 AS Years_As_Customer,
+  (MntWines + MntFruits + MntMeatProducts + MntFishProducts + MntSweetProducts + MntGoldProds) AS Total_Spend
+FROM marketing_clean;</code></pre>
+    </details>
+
+    <details>
+      <summary>🏆 RFM analýza a segmentace</summary>
+      <pre><code>SELECT
+  ID,
+  Recency,
+  Frequency,
+  Monetary,
+  ...
+  CASE
+    WHEN Recency <= 30 AND Frequency >= 10 AND Monetary >= 1000 THEN 'Champions'
+    ...
+  END AS Segment
+FROM (
+  SELECT
+    ID,
+    Recency,
+    NumStorePurchases + NumWebPurchases + NumCatalogPurchases AS Frequency,
+    ...
+  FROM marketing_clean
+) AS base;</code></pre>
+    </details>
+
+    <details>
+      <summary>🔄 Zákaznické fáze podle recency</summary>
+      <pre><code>SELECT 
+  ID,
+  Recency,
+  CASE 
+    WHEN Recency <= 30 THEN 'Aktivní'
+    WHEN Recency <= 90 THEN 'Středně aktivní'
+    ELSE 'Neaktivní'
+  END AS Activity_Segment
+FROM marketing_clean;</code></pre>
+    </details>
+
+    <h3>Stáhnout celý SQL kód</h3>
+    <a class="button" href="zakaznici.sql" download>Stáhnout SQL kód (.sql)</a>
   </div>
 </body>
 </html>
