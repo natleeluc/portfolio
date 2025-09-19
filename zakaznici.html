@@ -83,7 +83,7 @@
     <h3>Ukázky dotazů</h3>
 
     <details>
-      <summary>🎯 Délka členství vs. útrata</summary>
+      <summary>Délka členství vs. útrata</summary>
       <pre><code>SELECT
   ID, 
   DATEDIFF(CURDATE(), STR_TO_DATE(Dt_Customer, '%d.%m.%Y')) / 365 AS Years_As_Customer,
@@ -92,7 +92,7 @@ FROM marketing_clean;</code></pre>
     </details>
 
     <details>
-      <summary>🏆 RFM analýza a segmentace</summary>
+      <summary>RFM analýza a segmentace</summary>
       <pre><code>SELECT
   ID,
   Recency,
@@ -114,7 +114,7 @@ FROM (
     </details>
 
     <details>
-      <summary>🔄 Rozdělení zákazníků podle aktivity</summary>
+      <summary>Rozdělení zákazníků podle aktivity</summary>
       <pre><code>SELECT 
   ID,
   Recency,
